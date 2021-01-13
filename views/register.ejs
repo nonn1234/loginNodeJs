@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 
 <body>
-
-  <div class="container">
+<div class="container">
     <%- include('layout') %>
-      <h2 class="text-center">Create Member</h2>
+    <h2 class="text-center">Create Member</h2>
 
-      <% if (local.errors) { } %>
+    <% if (locals.errors) { %>
+        <ul class="alert-danger">
+            <% Object.values(errors).forEach( function(error) { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
 
-        <form class="form-group" action="/users/register" method="POST">
-          <div class="form-group">
+    <form class="form-group" action="/users/register" method="POST">
+        <div class="form-group">
             <label for="">Username :</label>
-            <input class="form-control" type="text" name="name" id="">
-          </div>
-          <div class="form-group">
+            <input class="form-control" type="text" name="name" id=""/>
+        </div>
+        <div class="form-group">
             <label for="">Email :</label>
-            <input class="form-control" type="text" name="email" id="">
-          </div>
-          <div class="form-group">
+            <input class="form-control" type="text" name="email" id=""/>
+        </div>
+        <div class="form-group">
             <label for="">Password :</label>
-            <input class="form-control" type="password" name="password" id="">
-          </div>
-          <br>
-          <input type="submit" value="Register" class="btn btn-primary">
-        </form>
-  </div>
+            <input class="form-control" type="password" name="password" id=""/>
+        </div>
+        <br/>
+        <input type="submit" value="Register" class="btn btn-primary"/>
+    </form>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
 </body>
-
 </html>
